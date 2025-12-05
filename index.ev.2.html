@@ -1,21 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .text
-        {
-            text-align: center;
-            text-shadow: 0.5px;
-            background-color: aqua;
-            color: blueviolet;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluarea nr. 2</title>
+
+  <style>
+    :root {
+      --bg: #0f1221;
+      --card: #171a2b;
+      --text: #e9ecf8;
+      --muted: #aab0c5;
+      --accent: #39c6ff;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 10% -10%, #1b2150 0%, transparent 60%),
+                  radial-gradient(900px 700px at 110% 10%, #0a4a55 0%, transparent 55%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      padding: 28px 18px 10px;
+      text-align: center;
+    }
+
+    h2.text {
+      margin: 0 auto;
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(57, 198, 255, 0.12);
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    p.sub {
+      margin: 10px auto 0;
+      max-width: 800px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      cursor: zoom-in;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+      border-color: rgba(57,198,255,0.5);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;        
+      object-fit: contain;  
+      display: block;
+      background: #0b0e1a;
+      padding: 6px;         
+    }
+
+    .caption {
+      padding: 8px 10px 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+   
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;          
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      background: #0b0e1a;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      cursor: zoom-out;
+    }
+
+    .lightbox .hint {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #cfd5ea;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <h2 class="text">Salut, asta este Evaluarea nr. 2</h2>
+    <p class="sub">Apasă pe orice imagine ca să o vezi mai mare.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="gallery">
+
+      <figure class="card"><img src="img/i1.png"  alt="Imagine i1"  data-full="img/i1.png"/><figcaption class="caption">i1.png</figcaption></figure>
+      <figure class="card"><img src="img/i2.png"  alt="Imagine i2"  data-full="img/i2.png"/><figcaption class="caption">i2.png</figcaption></figure>
+      <figure class="card"><img src="img/i3.png"  alt="Imagine i3"  data-full="img/i3.png"/><figcaption class="caption">i3.png</figcaption></figure>
+      <figure class="card"><img src="img/i4.png"  alt="Imagine i4"  data-full="img/i4.png"/><figcaption class="caption">i4.png</figcaption></figure>
+      <figure class="card"><img src="img/i5.png"  alt="Imagine i5"  data-full="img/i5.png"/><figcaption class="caption">i5.png</figcaption></figure>
+      <figure class="card"><img src="img/i6.png"  alt="Imagine i6"  data-full="img/i6.png"/><figcaption class="caption">i6.png</figcaption></figure>
+      <figure class="card"><img src="img/i7.png"  alt="Imagine i7"  data-full="img/i7.png"/><figcaption class="caption">i7.png</figcaption></figure>
+      <figure class="card"><img src="img/i8.png"  alt="Imagine i8"  data-full="img/i8.png"/><figcaption class="caption">i8.png</figcaption></figure>
+      <figure class="card"><img src="img/i9.png"  alt="Imagine i9"  data-full="img/i9.png"/><figcaption class="caption">i9.png</figcaption></figure>
+      <figure class="card"><img src="img/i10.png" alt="Imagine i10" data-full="img/i10.png"/><figcaption class="caption">i10.png</figcaption></figure>
+      <figure class="card"><img src="img/i11.png" alt="Imagine i11" data-full="img/i11.png"/><figcaption class="caption">i11.png</figcaption></figure>
+      <figure class="card"><img src="img/i12.png" alt="Imagine i12" data-full="img/i12.png"/><figcaption class="caption">i12.png</figcaption></figure>
+      <figure class="card"><img src="img/i13.png" alt="Imagine i13" data-full="img/i13.png"/><figcaption class="caption">i13.png</figcaption></figure>
+      <figure class="card"><img src="img/i14.png" alt="Imagine i14" data-full="img/i14.png"/><figcaption class="caption">i14.png</figcaption></figure>
+      <figure class="card"><img src="img/i15.png" alt="Imagine i15" data-full="img/i15.png"/><figcaption class="caption">i15.png</figcaption></figure>
+      <figure class="card"><img src="img/i16.png" alt="Imagine i16" data-full="img/i16.png"/><figcaption class="caption">i16.png</figcaption></figure>
+      <figure class="card"><img src="img/i17.png" alt="Imagine i17" data-full="img/i17.png"/><figcaption class="caption">i17.png</figcaption></figure>
+    </section>
+  </main>
+
+  <footer>© Evaluarea nr. 2</footer>
+
+ 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img id="lightboxImg" alt="Imagine mărită" />
+    <div class="hint">Click oriunde / ESC ca să închizi</div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+
     
+    document.querySelectorAll(".card img").forEach(img => {
+      img.addEventListener("click", () => {
+        const src = img.dataset.full || img.src;
+        lightboxImg.src = src;
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+    });
+
+   
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) {
+        lightbox.click();
+      }
+    });
+  </script>
 </body>
 </html>
-<h2 class="text">Salut asta este Evaluarea nr 2</h2>
